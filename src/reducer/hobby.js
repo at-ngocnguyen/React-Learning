@@ -22,13 +22,8 @@ const HobbyReducer = (state = initialState, action) => {
     };
     case 'CLEAR_HOBBY': {
       return { ...state, list: [] };
-    };
-    case 'EDIT_HOBBY': {
-      newList = [...state.list];
-      const index = newList.findIndex(x => x.id === action.payload.id);
-      newList[index].title = action.payload.title;
-      return { ...state, list: newList };
-    };
+    }
+
     default:
       return state;
   }

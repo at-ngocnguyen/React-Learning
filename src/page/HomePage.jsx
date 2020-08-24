@@ -4,7 +4,8 @@ import queryString from 'query-string'
 import HobbyList from '../components/home/HobbyList/HobbyList';
 import Pagigation from '../components/home/pagigation/pagigation';
 import PostList from '../components/home/pagigation/list'
-import { addNewHobby, setActiveHobby, clearHobby, deleteHobby, editHobby } from '../action/hobby'
+import { addNewHobby, setActiveHobby, clearHobby, deleteHobby } from '../action/hobby'
+import Search from '../components/search/search';
 
 function HomePage(props) {
 
@@ -38,8 +39,8 @@ function HomePage(props) {
       }
     }
     fetchApi();
-  }, [filter]);//Api sẽ thay đổi khi filter được thay đổi ở function handlePageChange() được callback từ component Pagination
-
+  }, [filter]);
+  // Api sẽ chạy lại khi filter được thay đổi
 
   const handlePageChange = (newPage) => {
     setFilter({
@@ -47,9 +48,23 @@ function HomePage(props) {
       _page: newPage
     })
   }
-  // Function handlePageChange() là hàm callback để nhận binding giá trị newPage từ component con lên bằng phương pháp callback event
+  // Function handlePageChange() là hàm callback để nhận binding giá trị
+  // newPage từ component con lên bằng phương pháp callback event
 
-  //======================== End Pagination Exercise ========================//
+
+
+  
+  //============================= Exercise Filter Seacrh ==============================//
+
+  function handleSeacrhChange(params) {
+    setFilter({
+      ...filter,
+      _page:1,
+      title_like : params.search
+    })
+  }
+  // Function callback từ component con sẽ set lại filter dẫn tới useEffect (dòng 27)
+  //  request lại API với query Params được cộng dồn với title_like
 
 
 
@@ -68,22 +83,22 @@ function HomePage(props) {
   //   activeId: state.hobby.activeId
   // }),shallowEqual);
 
-  const [hobby, setHobby] = useState('');
+  const [hobby, setHobby] = useState(
+    {
+      id: 0,
+      title: '',
+    }
+  );
 
-  const handleHobbyClick = () => {
-    const newHobby = {
-      id: hobbyList.length + 1,
-      title: hobby,
-    };
+  const handleAddHobby = () => {
     if (hobby) {
-      const action = addNewHobby(newHobby);
+      const action = addNewHobby(hobby);
       dispatch(action);
       setHobby('')
     }
   }
-  const handleEditHobby = (hobby) => {
-    setHobby(hobby.title);
-  }
+
+
   const handdleClearHobby = () => {
     const action = clearHobby();
     dispatch(action);
@@ -101,26 +116,38 @@ function HomePage(props) {
   // Handle lấy value input
   const handleChangeValue = (e) => {
     if (e.target.value) {
-      setHobby(e.target.value);
+      setHobby(
+        {
+          id: hobbyList.length + 1,
+          title: e.target.value,
+        }
+      );
     }
   }
+
   return (
     <div>
       <h1>Homepage</h1>
-      <input type="text" value={hobby} onChange={handleChangeValue} />
-      <button onClick={handleHobbyClick}>Random Hobby</button>
+
+      <input type="text" value={hobby.title || ''} onChange={handleChangeValue} />
+      <button onClick={handleAddHobby}>Random Hobby</button>
+
+
       <button onClick={handdleClearHobby}>Clear</button>
+      <Search
+        onSubmit={handleSeacrhChange}
+      />
       <HobbyList hobbyList={hobbyList}
         activeId={activeId}
         onHobbyClick={handleActiveHobby}
         onDelHobby={handleDelHobby}
-        onEditHobby={handleEditHobby}
       />
+      <PostList postList={postList} />
       <Pagigation
         pagigation={pagigation}
         onPageChange={handlePageChange}
       />
-      <PostList postList={postList} />
+
     </div>
   );
 
