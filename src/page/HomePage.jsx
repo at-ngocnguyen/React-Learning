@@ -6,6 +6,7 @@ import Pagigation from '../components/home/pagigation/pagigation';
 import PostList from '../components/home/pagigation/list'
 import { addNewHobby, setActiveHobby, clearHobby, deleteHobby } from '../action/hobby'
 import Search from '../components/search/search';
+import Clock from '../components/clock';
 
 function HomePage(props) {
 
@@ -53,14 +54,14 @@ function HomePage(props) {
 
 
 
-  
+
   //============================= Exercise Filter Seacrh ==============================//
 
   function handleSeacrhChange(params) {
     setFilter({
       ...filter,
-      _page:1,
-      title_like : params.search
+      _page: 1,
+      title_like: params.search
     })
   }
   // Function callback từ component con sẽ set lại filter dẫn tới useEffect (dòng 27)
@@ -125,15 +126,23 @@ function HomePage(props) {
     }
   }
 
+
+
+  //======================= Clock Exercise ==============================//
+  const [show, setShow] = useState(true);
+
+
   return (
     <div>
       <h1>Homepage</h1>
 
       <input type="text" value={hobby.title || ''} onChange={handleChangeValue} />
       <button onClick={handleAddHobby}>Random Hobby</button>
-
-
       <button onClick={handdleClearHobby}>Clear</button>
+      
+      {show && <Clock />}
+
+      <button onClick={() => setShow(!show)}>Open/Hide Clock</button>
       <Search
         onSubmit={handleSeacrhChange}
       />
