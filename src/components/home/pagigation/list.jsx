@@ -1,15 +1,17 @@
 import React from 'react';
+import { ListGroup } from 'react-bootstrap';
 
 const PostList = props => {
   const { postList } = props
   return (
-    <ul>
+    <ListGroup style={{ width: "70%"}} className="m-auto">
       {postList.map(list => (
-        <li key={list.id}>
+        <ListGroup.Item key={list.id} className="m-2">
           {list.title}
-        </li>
+        </ListGroup.Item>
       ))}
-    </ul>
+    </ListGroup>
+
   );
 };
 
