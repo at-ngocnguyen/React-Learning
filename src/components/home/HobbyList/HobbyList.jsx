@@ -25,7 +25,6 @@ function HobbyList(props) {
           >
             {hobby.title}
             <button onClick={() => onDelHobby(hobby)}>Delete</button>
-            <button onClick={() => onEditHobby(hobby)}>Edit</button>
           </li>
         ))}
       </ul>
