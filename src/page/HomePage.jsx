@@ -9,6 +9,7 @@ import Search from '../components/search/search';
 import Clock from '../components/clock';
 import Fake from '../components/clock/fake';
 import { Form, Col, Button } from 'react-bootstrap';
+import Color from '../components/color';
 // or less ideally
 
 function HomePage(props) {
@@ -148,7 +149,7 @@ function HomePage(props) {
       />
       <hr />
       {show && <Clock />}
-      <Fake/>
+      {show && <Fake />}
       <Button onClick={() => setShow(!show)}>{show ? 'Close' : 'Open'}</Button>
       <hr />
       <Search
@@ -160,6 +161,8 @@ function HomePage(props) {
         pagigation={pagigation}
         onPageChange={handlePageChange}
       />
+      <hr/>
+      <Color></Color>
 
     </div>
   );
