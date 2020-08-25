@@ -10,7 +10,7 @@ function Hobby(props) {
   const dispatch = useDispatch();
   //Strict comparition
 
-  // useSelector() gọi props từ Store về (fuke store.js)
+  // useSelector() gọi props từ Store về (file store.js)
   const hobbyList = useSelector((state) => state.hobby.list);
   const activeId = useSelector((state) => state.hobby.activeId);
 
