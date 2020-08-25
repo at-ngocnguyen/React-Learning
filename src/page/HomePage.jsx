@@ -7,6 +7,9 @@ import PostList from '../components/home/pagigation/list'
 import { addNewHobby, setActiveHobby, clearHobby, deleteHobby } from '../action/hobby'
 import Search from '../components/search/search';
 import Clock from '../components/clock';
+import Fake from '../components/clock/fake';
+import { Form, Col, Button } from 'react-bootstrap';
+// or less ideally
 
 function HomePage(props) {
 
@@ -84,16 +87,15 @@ function HomePage(props) {
   //   activeId: state.hobby.activeId
   // }),shallowEqual);
 
-  const [hobby, setHobby] = useState(
-    {
-      id: 0,
-      title: '',
-    }
-  );
+  const [hobby, setHobby] = useState('');
 
   const handleAddHobby = () => {
+    const newHobby = {
+      id: hobbyList.length + 1,
+      title: hobby
+    }
     if (hobby) {
-      const action = addNewHobby(hobby);
+      const action = addNewHobby(newHobby);
       dispatch(action);
       setHobby('')
     }
@@ -117,12 +119,7 @@ function HomePage(props) {
   // Handle lấy value input
   const handleChangeValue = (e) => {
     if (e.target.value) {
-      setHobby(
-        {
-          id: hobbyList.length + 1,
-          title: e.target.value,
-        }
-      );
+      setHobby(e.target.value);
     }
   }
 
@@ -133,24 +130,31 @@ function HomePage(props) {
 
 
   return (
-    <div>
-      <h1>Homepage</h1>
-
-      <input type="text" value={hobby.title || ''} onChange={handleChangeValue} />
-      <button onClick={handleAddHobby}>Random Hobby</button>
-      <button onClick={handdleClearHobby}>Clear</button>
-      
-      {show && <Clock />}
-
-      <button onClick={() => setShow(!show)}>Open/Hide Clock</button>
-      <Search
-        onSubmit={handleSeacrhChange}
-      />
+    <div className="container">
+      <Form.Group>
+        <Form.Row className="m-auto pt-5">
+          <Form.Label column="lg" lg={2}>Hobby</Form.Label>
+          <Col xs={7}>
+            <Form.Control type="text" value={hobby || ''} onChange={handleChangeValue} />
+          </Col>
+        </Form.Row>
+      </Form.Group>
+      <Button variant="success" onClick={handleAddHobby}>Random Hobby</Button>
+      <Button variant="danger" className="ml-5" onClick={handdleClearHobby}>Clear</Button>
       <HobbyList hobbyList={hobbyList}
         activeId={activeId}
         onHobbyClick={handleActiveHobby}
         onDelHobby={handleDelHobby}
       />
+      <hr />
+      {show && <Clock />}
+      <Fake/>
+      <Button onClick={() => setShow(!show)}>{show ? 'Close' : 'Open'}</Button>
+      <hr />
+      <Search
+        onSubmit={handleSeacrhChange}
+      />
+
       <PostList postList={postList} />
       <Pagigation
         pagigation={pagigation}

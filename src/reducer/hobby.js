@@ -14,7 +14,7 @@ const HobbyReducer = (state = initialState, action) => {
       newList = [...state.list];
       const index = newList.findIndex(x => x.id === action.payload.id);
       newList.splice(index, 1);
-      return { ...state, list: newList };
+      return { ...state, list: newList, activeId: '' };
     };
     case 'SET_ACTIVE_HOBBY': {
       const newActiveId = action.payload.id;
