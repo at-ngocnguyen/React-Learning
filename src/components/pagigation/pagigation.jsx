@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Pagigation = props => {
+const PaginationList = props => {
   const { pagigation, onPageChange } = props;
   const { _page, _limit, _totalRows } = pagigation;
 
@@ -29,4 +29,4 @@ const Pagigation = props => {
   );
 };
 
-export default Pagigation;
+export default PaginationList;
