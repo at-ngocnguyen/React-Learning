@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types'
 import './HobbyList.css'
+import { Button, ListGroup, Col, Row } from 'react-bootstrap';
 HobbyList.prototype = {
   hobbyList: PropTypes.array,
   activeId: PropTypes.number,
@@ -13,23 +14,27 @@ HobbyList.defaultProps = {
 }
 
 function HobbyList(props) {
-  const { hobbyList, activeId, onHobbyClick, onDelHobby, onEditHobby } = props;
+  const { hobbyList, activeId, onHobbyClick, onDelHobby } = props;
   return (
-    <div className="">
+    <div className="mt-5">
 
-      <ul className="hobby-list">
+      <ListGroup>
         {hobbyList.map(hobby => (
-          <li key={hobby.id}
-            className={hobby.id === activeId ? 'active' : ''}
+          <ListGroup.Item key={hobby.id}
             onClick={() => onHobbyClick(hobby)}
           >
-            {hobby.title}
-            <button onClick={() => onDelHobby(hobby)}>Delete</button>
-            <button onClick={() => onEditHobby(hobby)}>Edit</button>
-          </li>
+            <Row>
+              <Col xs={10}>
+                {hobby.title}
+              </Col>
+              <Col xs={2}>
+                <Button variant="outline-danger" size="sm" onClick={() => onDelHobby(hobby)}>Delete</Button>
+              </Col>
+            </Row>
+          </ListGroup.Item>
         ))}
-      </ul>
-    </div>
+      </ListGroup>
+    </div >
   );
 
 }

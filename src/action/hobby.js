@@ -19,13 +19,6 @@ export const deleteHobby = (hobby) => {
   }
 };
 
-export const editHobby = (hobby) => {
-  return {
-    type: 'EDIT_HOBBY',
-    payload: hobby,
-  }
-};
-
 export const clearHobby = () => {
   return {
     type: 'CLEAR_HOBBY',

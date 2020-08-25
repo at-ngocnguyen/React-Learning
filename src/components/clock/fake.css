@@ -1,0 +1,8 @@
+.fake {
+    width: 50%;
+    margin: 1rem auto;
+    border: solid 2px black;
+    border-radius: 25px;
+    padding: 5rem 0;
+    font-size: 2rem
+}

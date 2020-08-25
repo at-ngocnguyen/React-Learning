@@ -4,7 +4,13 @@ import queryString from 'query-string'
 import HobbyList from '../components/home/HobbyList/HobbyList';
 import Pagigation from '../components/home/pagigation/pagigation';
 import PostList from '../components/home/pagigation/list'
-import { addNewHobby, setActiveHobby, clearHobby, deleteHobby, editHobby } from '../action/hobby'
+import { addNewHobby, setActiveHobby, clearHobby, deleteHobby } from '../action/hobby'
+import Search from '../components/search/search';
+import Clock from '../components/clock';
+import Fake from '../components/clock/fake';
+import { Form, Col, Button } from 'react-bootstrap';
+import Color from '../components/color';
+// or less ideally
 
 function HomePage(props) {
 
@@ -38,8 +44,8 @@ function HomePage(props) {
       }
     }
     fetchApi();
-  }, [filter]);//Api sẽ thay đổi khi filter được thay đổi ở function handlePageChange() được callback từ component Pagination
-
+  }, [filter]);
+  // Api sẽ chạy lại khi filter được thay đổi
 
   const handlePageChange = (newPage) => {
     setFilter({
@@ -47,9 +53,23 @@ function HomePage(props) {
       _page: newPage
     })
   }
-  // Function handlePageChange() là hàm callback để nhận binding giá trị newPage từ component con lên bằng phương pháp callback event
+  // Function handlePageChange() là hàm callback để nhận binding giá trị
+  // newPage từ component con lên bằng phương pháp callback event
 
-  //======================== End Pagination Exercise ========================//
+
+
+
+  //============================= Exercise Filter Seacrh ==============================//
+
+  function handleSeacrhChange(params) {
+    setFilter({
+      ...filter,
+      _page: 1,
+      title_like: params.search
+    })
+  }
+  // Function callback từ component con sẽ set lại filter dẫn tới useEffect (dòng 27)
+  //  request lại API với query Params được cộng dồn với title_like
 
 
 
@@ -70,20 +90,19 @@ function HomePage(props) {
 
   const [hobby, setHobby] = useState('');
 
-  const handleHobbyClick = () => {
+  const handleAddHobby = () => {
     const newHobby = {
       id: hobbyList.length + 1,
-      title: hobby,
-    };
+      title: hobby
+    }
     if (hobby) {
       const action = addNewHobby(newHobby);
       dispatch(action);
       setHobby('')
     }
   }
-  const handleEditHobby = (hobby) => {
-    setHobby(hobby.title);
-  }
+
+
   const handdleClearHobby = () => {
     const action = clearHobby();
     dispatch(action);
@@ -104,23 +123,47 @@ function HomePage(props) {
       setHobby(e.target.value);
     }
   }
+
+
+
+  //======================= Clock Exercise ==============================//
+  const [show, setShow] = useState(true);
+
+
   return (
-    <div>
-      <h1>Homepage</h1>
-      <input type="text" value={hobby} onChange={handleChangeValue} />
-      <button onClick={handleHobbyClick}>Random Hobby</button>
-      <button onClick={handdleClearHobby}>Clear</button>
+    <div className="container">
+      <Form.Group>
+        <Form.Row className="m-auto pt-5">
+          <Form.Label column="lg" lg={2}>Hobby</Form.Label>
+          <Col xs={7}>
+            <Form.Control type="text" value={hobby || ''} onChange={handleChangeValue} />
+          </Col>
+        </Form.Row>
+      </Form.Group>
+      <Button variant="success" onClick={handleAddHobby}>Random Hobby</Button>
+      <Button variant="danger" className="ml-5" onClick={handdleClearHobby}>Clear</Button>
       <HobbyList hobbyList={hobbyList}
         activeId={activeId}
         onHobbyClick={handleActiveHobby}
         onDelHobby={handleDelHobby}
-        onEditHobby={handleEditHobby}
       />
+      <hr />
+      {show && <Clock />}
+      {show && <Fake />}
+      <Button onClick={() => setShow(!show)}>{show ? 'Close' : 'Open'}</Button>
+      <hr />
+      <Search
+        onSubmit={handleSeacrhChange}
+      />
+
+      <PostList postList={postList} />
       <Pagigation
         pagigation={pagigation}
         onPageChange={handlePageChange}
       />
-      <PostList postList={postList} />
+      <hr/>
+      <Color></Color>
+
     </div>
   );
 

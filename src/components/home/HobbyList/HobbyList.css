@@ -1,6 +1,7 @@
-.ul.hobby-list>li{
-  transition: all .35s ease-in-out 0s;
+.ul.hobby-list>li {
+    transition: all .35s ease-in-out 0s;
 }
-.active{
-  color: blueviolet;
+
+.active {
+    color: blueviolet;
 }
