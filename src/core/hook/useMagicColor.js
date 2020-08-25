@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 function randomColor(curentColor) {
   const COLOR_LIST = ['red', 'green', 'yellow'];
@@ -32,7 +32,7 @@ function useMagicColor(props) {
       colorRef.current = newColor;
     }, 1000)
     return () => {
-      colorInterval(colorInterval)
+      clearInterval(colorInterval);
     }
   }, []);
   return color;

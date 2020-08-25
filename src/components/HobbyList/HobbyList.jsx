@@ -14,7 +14,7 @@ HobbyList.defaultProps = {
 }
 
 function HobbyList(props) {
-  const { hobbyList, activeId, onHobbyClick, onDelHobby } = props;
+  const { hobbyList, onHobbyClick, onDelHobby } = props;
   return (
     <div className="mt-5">
 

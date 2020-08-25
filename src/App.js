@@ -1,12 +1,13 @@
 import React from 'react';
 import './App.css';
-import HomePage from './page/HomePage'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import PathRouter from './router/PathRouter';
+
 
 function App() {
   return (
-    <div className="App">
-      <HomePage />
+    <div className="container">
+      <PathRouter/>
     </div>
   );
 }

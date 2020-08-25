@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
+import { Form } from 'react-bootstrap';
 
 Search.propTypes = {
   onSubmit: PropTypes.func
@@ -31,12 +32,13 @@ function Search(props) {
     // ở đây debounce sẽ can thiệp vào function khiến cho function chạy khi event onChange của input kết thúc thì mới thực hiện onSubmit()
   }
   return (
-    <form>
-      <input type="text"
+    <Form>
+      <Form.Control type="text"
         value={search}
         onChange={hanleChangeValue}
+        placeholder="Typing for search"
       />
-    </form>
+    </Form>
   );
 }
 
