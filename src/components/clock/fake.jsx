@@ -1,18 +1,14 @@
-import React, { useState } from 'react';
+import React   from 'react';
 import useClock from '../../core/hook/useClock';
-import './fake.css'
-const Fake = props => {
+import './clock.scss'
+const ClockFake = props => {
   const { time } = useClock();
 
   return (
-    <div  className="fake">
+    <div className="fake">
       {time}
     </div>
   );
 };
 
-Fake.propTypes = {
-
-};
-
-export default Fake;
+export default ClockFake;
