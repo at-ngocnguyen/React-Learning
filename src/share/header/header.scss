@@ -1,0 +1,25 @@
+.header {
+  margin: 2rem auto;
+
+  a {
+    margin: 10px;
+    color: black;
+    text-decoration: none;
+    padding: .375rem .75rem;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+    transition: all ease-in-out 0.3s;
+
+    &.active {
+      color: #fff;
+      background-color: #dc3545;
+      border-color: #dc3545;
+      text-decoration: none;
+    }
+
+    &:hover {
+      border: solid 1px #b21f2d;
+      box-shadow: 0 0 0 0.2rem rgba(225, 83, 97, .5);
+    }
+  }
+}
