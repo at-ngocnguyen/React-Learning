@@ -12,7 +12,7 @@ function Clock(props) {
 
   return (
     <div>
-      <Button onClick={() => setShow(!show)}>{show ? 'Close' : 'Open'}</Button>
+      <Button variant="outline-primary" onClick={() => setShow(!show)}>{show ? 'Close' : 'Open'}</Button>
       {show && <ClockReal />}
       {show && <ClockFake />}
     </div>

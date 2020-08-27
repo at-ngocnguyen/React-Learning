@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from 'react-bootstrap';
 
 const PaginationList = props => {
   const { pagigation, onPageChange } = props;
@@ -13,18 +14,21 @@ const PaginationList = props => {
   }
   return (
     <div>
-      <button
+      <Button
+        variant="outline-danger"
         disabled={_page <= 1}
+        className="mr-5 ml-5"
         onClick={() => handlePageChange(_page - 1)}
       >
         prev
-      </button>
-      <button
+      </Button>
+      <Button
+        variant="outline-danger"
         disabled={_page >= totalPages}
         onClick={() => handlePageChange(_page + 1)}
       >
         next
-      </button>
+      </Button>
     </div >
   );
 };

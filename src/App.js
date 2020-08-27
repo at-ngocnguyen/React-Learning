@@ -7,7 +7,7 @@ import PathRouter from './router/PathRouter';
 function App() {
   return (
     <div className="container">
-      <PathRouter/>
+      <PathRouter />
     </div>
   );
 }
