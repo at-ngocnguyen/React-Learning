@@ -1,14 +1,14 @@
 import { useState, useEffect, useRef } from 'react';
 
 function randomColor(curentColor) {
-  const COLOR_LIST = ['red', 'green', 'yellow'];
+  const COLOR_LIST = ['red', 'green', 'yellow', 'blue'];
   const currentIndex = COLOR_LIST.indexOf(curentColor);
   let newIndex = currentIndex;
 
   while (currentIndex === newIndex) {
-     newIndex = Math.trunc(Math.random() * 3);
-     // newIndex sẽ được tính như sau
-     // Lấy 1 số từ 0 đến 1 nhân với 3 rồi loại bỏ số đuôi với Math.trunc
+    newIndex = Math.trunc(Math.random() * 4);
+    // newIndex sẽ được tính như sau
+    // Lấy 1 số từ 0 đến 1 nhân với 3 rồi loại bỏ số đuôi với Math.trunc
   }
 
   return COLOR_LIST[newIndex];

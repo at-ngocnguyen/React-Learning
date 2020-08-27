@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Form, Col, Button } from 'react-bootstrap';
+import { Form, Col, Button, ButtonGroup } from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
 import { addNewHobby, setActiveHobby, deleteHobby, clearHobby } from '../action/hobby';
 import HobbyList from '../components/HobbyList/HobbyList';
@@ -30,14 +30,18 @@ function Hobby(props) {
     if (hobby) {
       const action = addNewHobby(newHobby);
       dispatch(action);
-      setHobby('')
+      setHobby('');
+    } else {
+      alert('Please Input your HOBBY');
     }
   }
 
 
   const handdleClearHobby = () => {
-    const action = clearHobby();
-    dispatch(action);
+    if (window.confirm('Are you sure!')) {
+      const action = clearHobby();
+      dispatch(action);
+    }
   }
 
   const handleActiveHobby = (hobby) => {
@@ -57,16 +61,18 @@ function Hobby(props) {
   }
   return (
     <div>
-      <Form.Group>
+      <Form.Group as="form">
         <Form.Row className="m-auto">
-          <Form.Label column="lg" lg={2}>Hobby</Form.Label>
-          <Col xs={7}>
+          <Form.Label column="lg" lg={2} className="text-center">Hobby</Form.Label>
+          <Col xs={7} className="m-auto">
             <Form.Control type="text" value={hobby || ''} placeholder="Input your Hobby" onChange={handleChangeValue} />
           </Col>
         </Form.Row>
       </Form.Group>
-      <Button variant="success" onClick={handleAddHobby}>Random Hobby</Button>
-      <Button variant="danger" className="ml-5" onClick={handdleClearHobby}>Clear</Button>
+      <ButtonGroup className="m-auto">
+        <Button variant="success" onClick={handleAddHobby}>Random Hobby</Button>
+        <Button variant="danger" onClick={handdleClearHobby}>Clear</Button>
+      </ButtonGroup>
       <HobbyList hobbyList={hobbyList}
         activeId={activeId}
         onHobbyClick={handleActiveHobby}
