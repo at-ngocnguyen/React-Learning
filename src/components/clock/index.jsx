@@ -1,7 +1,5 @@
+import useClock from 'core/hook/useClock';
 import React from 'react';
-import useClock from '../../core/hook/useClock';
-
-
 
 function ClockReal(props) {
   const { time } = useClock();

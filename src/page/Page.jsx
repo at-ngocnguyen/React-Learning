@@ -1,7 +1,8 @@
 import React from 'react';
-import './page.scss'
-import Header from '../share/header/header';
-import Footer from '../share/footer/footer';
+import Footer from 'share/footer/footer';
+import Header from 'share/header/header';
+import './page.scss';
+
 function Page(props) {
   return (
     <div className="homepage">
