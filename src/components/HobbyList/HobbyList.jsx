@@ -14,14 +14,14 @@ HobbyList.defaultProps = {
 }
 
 function HobbyList(props) {
-  const { hobbyList, onHobbyClick, onDelHobby } = props;
+  const { hobbyList, onDelHobby } = props;
   return (
     <div className="mt-5">
 
-      <ListGroup>
+      <ListGroup as="ul">
         {hobbyList.map(hobby => (
           <ListGroup.Item key={hobby.id}
-            onClick={() => onHobbyClick(hobby)}
+            as="li"
           >
             <Row>
               <Col xs={10}>
