@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import PostList from '../components/pagigation/list';
-import PaginationList from '../components/pagigation/pagigation';
 import queryString from 'query-string'
-import Search from '../components/search/search';
+import Search from 'components/search/search';
+import PostList from 'components/pagigation/list';
+import PaginationList from 'components/pagigation/pagigation';
 function Pagination(props) {
   //======================== Pagination Exercise ========================//
 

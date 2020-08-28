@@ -1,8 +1,8 @@
+import { addNewHobby, clearHobby, deleteHobby } from 'action/hobby';
+import HobbyList from 'components/HobbyList/HobbyList';
 import React, { useState } from 'react';
-import { Form, Col, Button, ButtonGroup } from 'react-bootstrap';
-import { useSelector, useDispatch } from 'react-redux';
-import { addNewHobby, setActiveHobby, deleteHobby, clearHobby } from '../action/hobby';
-import HobbyList from '../components/HobbyList/HobbyList';
+import { Button, ButtonGroup, Col, Form } from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
 
 function Hobby(props) {
   //========================= Exercise Hobby List =================================//
@@ -44,11 +44,6 @@ function Hobby(props) {
     }
   }
 
-  const handleActiveHobby = (hobby) => {
-    const action = setActiveHobby(hobby);
-    dispatch(action);
-  }
-
   const handleDelHobby = (hobby) => {
     const action = deleteHobby(hobby);
     dispatch(action);
@@ -75,7 +70,6 @@ function Hobby(props) {
       </ButtonGroup>
       <HobbyList hobbyList={hobbyList}
         activeId={activeId}
-        onHobbyClick={handleActiveHobby}
         onDelHobby={handleDelHobby}
       />
     </div>

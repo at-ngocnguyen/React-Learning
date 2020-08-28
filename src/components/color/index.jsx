@@ -1,6 +1,6 @@
+import useMagicColor from 'core/hook/useMagicColor';
 import React from 'react';
-import useMagicColor from '../../core/hook/useMagicColor';
-import './color.css'
+import './color.css';
 
 function Color(props) {
   const color = useMagicColor();

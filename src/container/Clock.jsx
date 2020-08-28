@@ -1,7 +1,8 @@
+import ClockReal from 'components/clock';
+import ClockFake from 'components/clock/fake';
 import React, { useState } from 'react';
-import ClockReal from '../components/clock';
-import ClockFake from '../components/clock/fake';
 import { Button } from 'react-bootstrap';
+
 
 Clock.propTypes = {
 
