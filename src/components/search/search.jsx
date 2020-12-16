@@ -22,7 +22,6 @@ function Search(props) {
 
     if (typing.current)  clearTimeout(typing.current);
     // Remove setTimeout, ở đây để tránh trường hợp bị lặp setTimeout
-     
     typing.current = setTimeout(() => {
       const formValue = {
         search: value,

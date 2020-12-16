@@ -21,7 +21,7 @@ function Pagination(props) {
   useEffect(() => {
     async function fetchApi() {
       try {
-        const paramString = queryString.stringify(filter);// convert object filter (dòng 29) thành string
+        const paramString = queryString.stringify(filter);// convert object filter thành string
         const requestUrl = `http://js-post-api.herokuapp.com/api/posts?${paramString}`
         const response = await fetch(requestUrl); //Call API
         const respondseJSON = await response.json(); // Trả Api về dạng object
