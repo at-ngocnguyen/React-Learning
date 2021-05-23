@@ -14,15 +14,17 @@ function TodoForm(props) {
   const [value, setValue] = useState('');
   function handleValueChange(e) {
     setValue(e.target.value);
-  }
+  };
   function handleSubmit(e) {
     e.preventDefault();
     if (!onSubmit) return;
-    const formValues = {
-      title: value,
-    };
-    onSubmit(formValues);
-    setValue('');
+    if(value){
+      const formValues = {
+        title: value,
+      };
+      onSubmit(formValues);
+      setValue('');
+    }
   }
   return (
     <Form onSubmit={handleSubmit}>
