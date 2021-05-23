@@ -1,0 +1,45 @@
+// Color system
+$white: #fff !default;
+$gray-100: #f7f7f7 !default; // info
+$gray-200: #eeeeee !default; // gray
+$gray-300: #b4b4b5 !default; //secondary
+$gray-400: #cccccc !default; // gray-4
+$gray-500: #adb5bd !default;
+$gray-600: #d1d1d1; // gray-1
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+$black: #000 !default;
+$blue: #007bff !default;
+$indigo: #6610f2 !default;
+$purple: #6f42c1 !default;
+$pink: #f8c3c3 !default;
+$red: #ff3333 !default;
+$orange: #f37e20 !default;
+$yellow: #f9e54b !default;
+$green: #08a59f !default;
+$teal: #20c997 !default;
+$cyan: #17a2b8 !default;
+$primary: $orange !default;
+$info: $gray-100;
+$secondary: $gray-300 !default;
+$light: $gray-200 !default;
+$dark: $black;
+$dark-100: #707070;
+$warning: $yellow;
+$green: $green;
+
+.color {
+    color: $cyan;
+}
+
+$theme-colors: (
+    "success": $green,
+    "gray": $gray-200,
+    "gray-1": $gray-600,
+    "gray-4": $gray-400,
+    "pink": $pink,
+    "green": $green,
+    "dark-1": $dark-100,
+    "danger": $pink
+);

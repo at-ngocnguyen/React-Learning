@@ -16,13 +16,16 @@ function Todo(props) {
     const newTodoList = [...todoList];
     newTodoList.splice(index, 1);
     setTodoList(newTodoList);
-    console.log(todo);
   }
   function handleTodoFormSubmit(formValues) {
-    const newTodoList = [...todoList];
-    const newTodo = { id: todoList.length + 1, ...formValues }
-    newTodoList.push(newTodo);
-    setTodoList(newTodoList);
+    if(formValues){
+      const newTodoList = [...todoList];
+      const newTodo = { id: todoList.length + 1, ...formValues }
+      newTodoList.push(newTodo);
+      setTodoList(newTodoList);
+    } else {
+      alert('Please input value');
+    }
   }
   return (
     <div>

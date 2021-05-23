@@ -3,6 +3,7 @@ import HobbyList from 'components/HobbyList/HobbyList';
 import React, { useState } from 'react';
 import { Button, ButtonGroup, Col, Form } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
+import '../assets/styling/variables.scss'
 
 function Hobby(props) {
   //========================= Exercise Hobby List =================================//
