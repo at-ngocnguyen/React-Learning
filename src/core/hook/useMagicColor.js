@@ -14,8 +14,8 @@ function randomColor(curentColor) {
   return COLOR_LIST[newIndex];
 }
 // Vấn đề được đặt ra trong bài này:
-// Vì useEffect chỉ chạy một lần, nhưng lại setTimeout*() liên tục dẫn tới
-// giá trị  color sẽ luôn được trả lại 'transparent' rồi mới chạy biến được khởi tạo mới
+// Vì useEffect chỉ chạy một lần, nhưng lại setTimeout() liên tục dẫn tới
+// giá trị color sẽ luôn được trả lại 'transparent' rồi mới chạy biến được khởi tạo mới
 // trong setTimeout(), có thể truyền dependencies là color cho useEffect() nhưng sẽ dẫn
 // tới việc clear và set Timeout liên tục ảnh hưởn tới performance
 // => Cách giải quyết tạo một colorRef sử dụng useRef để lưu giá trị hiện tại và để can thiệp debounce rồi đem đi so sánh
