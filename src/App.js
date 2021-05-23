@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+// import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import 'antd/dist/antd.css';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from 'share/home/home';
 import Clock from 'container/Clock';
@@ -12,6 +13,7 @@ import Product from 'container/Product';
 import Error404 from 'share/404/404';
 import Header from 'share/header/header';
 import Footer from 'share/footer/footer';
+import Login from 'admin/Login';
 
 const routing = [
   {
@@ -42,6 +44,10 @@ const routing = [
   {
     path: '/product',
     children: () => <Product/>,
+  },
+  {
+    path: '/login',
+    children: () => <Login/>,
   },
   {
     path: '*',
