@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import queryString from 'query-string'
 import Search from 'components/search/search';
-import PostList from 'components/pagigation/list';
-import PaginationList from 'components/pagigation/pagigation';
+import PostList from 'components/pagination/list';
+import PaginationList from 'components/pagination/pagination';
 function Pagination(props) {
   //======================== Pagination Exercise ========================//
 
   // useState() là hàm khởi tạo State thay vì khởi tạo bằng contructor, set lại giá trị của state thông qua gọi lại giá trị được khởi tạo đi kèm, thí dụ ở phía dưới
   const [postList, setPostList] = useState([]);
-  const [pagigation, setPagigation] = useState({
+  const [pagination, setPagination] = useState({
     _page: 1,
     _limit: 10,
     _totalRows: 11,
@@ -27,12 +27,13 @@ function Pagination(props) {
         const respondseJSON = await response.json(); // Trả Api về dạng object
         const { data, pagination } = respondseJSON; // Khai báo giá trị để hứng API
         setPostList(data); // Cập nhật dự liệu để render trên ListPost component
-        setPagigation(pagination); // Cập nhật số trang trên Pagination component
+        setPagination(pagination); // Cập nhật số trang trên Pagination component
       } catch (error) {
         console.log('Fail ', error.massage);
       }
     }
     fetchApi();
+    return setPagination({});
   }, [filter]);
   // Api sẽ chạy lại khi filter được thay đổi
 
@@ -68,7 +69,7 @@ function Pagination(props) {
 
       <PostList postList={postList} />
       <PaginationList
-        pagigation={pagigation}
+        pagination={pagination}
         onPageChange={handlePageChange}
       />
     </div>

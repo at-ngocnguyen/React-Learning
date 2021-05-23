@@ -4,8 +4,8 @@ import { useState } from 'react';
 import { Button } from 'react-bootstrap';
 
 const PaginationList = props => {
-  const { pagigation, onPageChange } = props;
-  const { _page, _limit, _totalRows } = pagigation;
+  const { pagination, onPageChange } = props;
+  const { _page, _limit, _totalRows } = pagination;
   const [numb, setNumb] = useState([]);
   const totalPages = Math.ceil((_totalRows / _limit));
 
@@ -22,7 +22,7 @@ const PaginationList = props => {
   }
 
   useEffect(() => {
-    selectPage(totalPages)
+    selectPage(totalPages);
   }, [totalPages])
 
   function handlePageChange(newPage) {

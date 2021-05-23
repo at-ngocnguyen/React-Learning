@@ -6,7 +6,7 @@ const HobbyReducer = (state = initialState, action) => {
   let newList = [];
   switch (action.type) {
     case 'ADD_HOBBY': {
-      newList = [...state.list];
+      let newList = [...state.list];
       newList.push(action.payload)
       return { ...state, list: newList };
     };
@@ -23,7 +23,6 @@ const HobbyReducer = (state = initialState, action) => {
     case 'CLEAR_HOBBY': {
       return { ...state, list: [] };
     }
-
     default:
       return state;
   }
