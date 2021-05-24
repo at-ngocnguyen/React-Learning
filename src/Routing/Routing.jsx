@@ -1,81 +1,50 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Home from "share/home/home";
-import Clock from "container/Clock";
-import Color from "components/color";
-import Hobby from "container/Hobby";
-import Pagination from "container/Pagination";
-import Todo from "container/Todo";
-import Product from "container/Product";
+import { Clock, Hobby, Pagination, Todo, Product } from "container/Index";
 import Error404 from "share/404/404";
-import Header from "share/header/header";
-import Footer from "share/footer/footer";
 import Login from "admin/Login";
 import Order from "admin/Order";
+import Home from "share/home/home";
+import Color from "components/color";
 
-const routing = [
+export const routing = [
   {
     path: "/",
-    children: () => <Home />,
+    component: Home,
     exact: true,
   },
   {
     path: "/clock",
-    children: () => <Clock />,
+    component: Clock,
   },
   {
     path: "/color",
-    children: () => <Color />,
+    component: Color,
   },
   {
     path: "/hobby",
-    children: () => <Hobby />,
+    component: Hobby,
   },
   {
     path: "/pagination",
-    children: () => <Pagination />,
+    component: Pagination,
   },
   {
     path: "/todo",
-    children: () => <Todo />,
+    component: Todo,
   },
   {
     path: "/product",
-    children: () => <Product />,
+    component: Product,
   },
   {
     path: "/login",
-    children: () => <Login />,
+    component: Login,
   },
   {
     path: "/order",
-    children: () => <Order />,
+    component: Order,
   },
   {
     path: "*",
-    children: () => <Error404 />,
+    component: Error404,
   },
 ];
-
-const Routing = () => {
-  return (
-    <Router>
-      <div className="container">
-        <Header />
-        <Switch>
-          {routing.map((item, index) => (
-            <Route
-              key={index}
-              path={item.path}
-              children={item.children}
-              exact={item.exact ? item.exact : false}
-            />
-          ))}
-        </Switch>
-        <Footer />
-      </div>
-    </Router>
-  );
-};
-
-export default Routing;

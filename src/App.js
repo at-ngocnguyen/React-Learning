@@ -2,11 +2,11 @@ import React from 'react';
 import './App.css';
 // import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import 'antd/dist/antd.css';
-import Routing from 'Routing/Routing';
+import PathRouter from 'Routing/PathRouter';
 
 function App() {
   return (
-    <Routing />
+    <PathRouter />
   );
 }
 
