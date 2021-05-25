@@ -8,43 +8,43 @@ import Color from "components/color";
 export const routing = [
   {
     path: "/",
-    component: Home,
+    component: ()=> <Home/>,
     exact: true,
   },
   {
     path: "/clock",
-    component: Clock,
+    component: ()=> <Clock/>,
   },
   {
     path: "/color",
-    component: Color,
+    component: ()=> <Color/>,
   },
   {
     path: "/hobby",
-    component: Hobby,
+    component: ()=> <Hobby/>,
   },
   {
     path: "/pagination",
-    component: Pagination,
+    component: ()=> <Pagination/>,
   },
   {
     path: "/todo",
-    component: Todo,
+    component: ()=> <Todo/>,
   },
   {
     path: "/product",
-    component: Product,
+    component: ()=> <Product/>,
   },
   {
     path: "/login",
-    component: Login,
+    component: ()=> <Login/>,
   },
   {
     path: "/order",
-    component: Order,
+    component: ()=> <Order/>,
   },
   {
     path: "*",
-    component: Error404,
+    component: ()=> <Error404/>,
   },
 ];
