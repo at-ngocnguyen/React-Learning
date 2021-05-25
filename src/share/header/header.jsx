@@ -10,6 +10,7 @@ function Header(props) {
       <NavLink to='/pagination'>Pagination</NavLink>
       <NavLink to='/todo'>Todo</NavLink>
       <NavLink to='/product'>Product</NavLink>
+      <NavLink to='/order'>Order</NavLink>
     </header>
   );
 }
