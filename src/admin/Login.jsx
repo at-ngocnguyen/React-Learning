@@ -1,7 +1,9 @@
 import React from "react";
 import { Form, Input, Button, Checkbox } from "antd";
+import { useHistory } from "react-router-dom";
 
 const Login = () => {
+  const history = useHistory();
   const layout = {
     labelCol: {
       span: 8,
@@ -17,7 +19,7 @@ const Login = () => {
     },
   };
   const onFinish = (values) => {
-    console.log("Success:", values);
+    history.push("/order");
   };
 
   const onFinishFailed = (errorInfo) => {
