@@ -1,38 +1,82 @@
-.App {
-  text-align: center;
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+.container {
+  max-width: 990px;
+  padding: 0 15px;
+  margin: 0 auto;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.page-header {
+  position: relative;
+  width: 100%;
+  min-width: 300px;
+  height: 50px;
+  border: 10px solid transparent;
+  border-top: 10px solid #61dbfb;
+  border-left: 10px solid #61dbfb;
+  box-shadow: 4px 4px 5px rgba(132, 153, 180, 0.25) inset;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.page-header::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 30%;
+  height: 49px;
+  border: 10px solid transparent;
+  border-bottom: 10px solid #61dbfb;
+  border-right: 10px solid #61dbfb;
+  transition: 0.3s linear all;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.page-header > .logo {
+  position: absolute;
+  top: calc(50% - 20px);
+  left: 10px;
+  transform: translateY(-50%);
+  font-family: "Parisienne", cursive;
+  cursor: default;
+  user-select: none;
+}
+.nav-menu {
+  position: absolute;
+  top: 0;
+  right: 0;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  z-index: 1;
 }
-
-.App-link {
+.nav-menu > li {
+  display: inline-flex;
+  padding: 14px;
+  margin-left: 2px;
+  font-family: "Quicksand", sans-serif;
+  cursor: pointer;
+  transition: 0.3s linear all;
+  user-select: none;
   color: #61dafb;
 }
+.nav-menu > li:hover {
+  color: #faa;
+}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.page-main {
+  min-height: calc(100vh - 133px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.page-footer,
+.page-main {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+.page-footer {
+  padding: 20px 0;
 }
