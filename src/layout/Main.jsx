@@ -1,11 +1,11 @@
 import React from "react";
-import logo from '../logo.svg';
-
+import CountDown from "components/CountDown/CountDown";
 const Main = () => {
   return (
     <main className="page-main container">
-      <img src={logo} alt=""/>
-      Hello World
+      <CountDown runTime={10} />
+      <CountDown runTime={12} />
+      <CountDown runTime={15} />
     </main>
   );
 };
