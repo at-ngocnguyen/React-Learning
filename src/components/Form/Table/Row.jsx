@@ -13,7 +13,10 @@ export default class Row extends Component {
         <td>{data.gender}</td>
         <td>{data.info}</td>
         <td>
-          <button className="btn btn-danger" onClick={onDeleteRow(data.id)}>
+          <button
+            className="btn btn-danger"
+            onClick={() => onDeleteRow(data.id)}
+          >
             Delete
           </button>
         </td>
