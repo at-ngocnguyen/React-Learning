@@ -29,17 +29,40 @@ $dark-100: #707070;
 $warning: $yellow;
 $green: $green;
 
-.color {
-    color: $cyan;
-}
-
+// Custom theme Bootstrap
+// => Can change color of theme.
+// => Create new theme
 $theme-colors: (
-    "success": $green,
-    "gray": $gray-200,
-    "gray-1": $gray-600,
-    "gray-4": $gray-400,
-    "pink": $pink,
-    "green": $green,
-    "dark-1": $dark-100,
-    "danger": $pink
+  "primary": $dark, // Change color primary blue to $dark
+  "secondary": $purple,
+  "success": $green,
+  "gray": $gray-200,
+  "gray-1": $gray-600,
+  "gray-4": $gray-400,
+  "ngoc": $purple
+);
+
+// Use in function.scss -> Create fs-{$font-size}
+$font-size: (
+  10: 10px,
+  xs: 12px,
+  lg: 16px,
+);
+
+// Spacing:
+//     margin -> m-{$spacer}, mt-{$spacer}, mb-{$spacer}, mr-{$spacer}, ml-{$spacer}
+//     padding -> p-{$spacer}, pt-{$spacer}, pb-{$spacer}, pr-{$spacer}, pl-{$spacer}
+$spacer: 5px !default;
+$spacers: () !default;
+$spacers: map-merge(
+  (
+    0: 0,
+    1: $spacer,
+    2: $spacer * 2,
+    3: $spacer * 3,
+    4: $spacer * 4,
+    5: $spacer * 5,
+    12: $spacer * 12,
+  ),
+  $spacers
 );
