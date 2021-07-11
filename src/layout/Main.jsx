@@ -1,6 +1,7 @@
 import React from "react";
 // import CountDown from "components/CountDown/CountDown";
-import FormHooks from "components/FormHooks/index";
+import PaginationList from "components/PaginationEx/index";
+
 const Main = () => {
   return (
     <main className="page-main">
@@ -12,7 +13,8 @@ const Main = () => {
         <button className="button-circle">abc</button>
         <button className="btn-custom">abc</button>
       </div> */}
-        <FormHooks />
+        {/* <FormHooks /> */}
+        <PaginationList />
       </div>
     </main>
   );
