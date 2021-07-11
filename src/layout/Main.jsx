@@ -1,6 +1,6 @@
 import React from "react";
 // import CountDown from "components/CountDown/CountDown";
-import Form from "components/Form/index";
+import FormHooks from "components/FormHooks/index";
 const Main = () => {
   return (
     <main className="page-main">
@@ -12,7 +12,7 @@ const Main = () => {
         <button className="button-circle">abc</button>
         <button className="btn-custom">abc</button>
       </div> */}
-        <Form />
+        <FormHooks />
       </div>
     </main>
   );
